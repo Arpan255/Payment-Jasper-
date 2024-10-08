@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="InvoiceReport" pageWidth="842" pageHeight="1169" orientation="Portrait" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <field name="invoicenumber" class="java.lang.String"/>
+    <field name="amount" class="java.lang.Double"/>
+    <field name="currency" class="java.lang.String"/>
+    <field name="username" class="java.lang.String"/>
+    <field name="ponumber" class="java.lang.String"/>
+    <field name="targetBankAccount" class="java.lang.String"/>
+    <field name="sourceBankAccount" class="java.lang.String"/>
+    <field name="tds" class="java.lang.Integer"/>
+    <field name="status" class="java.lang.String"/>
+    <field name="paymentdate" class="java.lang.String"/>
+
+    <title>
+        <band height="60">
+            <staticText>
+                <reportElement x="0" y="0" width="802" height="50"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="24" isBold="true"/>
+                </textElement>
+                <text><![CDATA[INVOICE]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <pageHeader>
+        <band height="70">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="60"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="10" y="10" width="200" height="20"/>
+                <text><![CDATA[Company Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="10" y="30" width="200" height="20"/>
+                <text><![CDATA[Address Line 1]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="10" y="45" width="200" height="20"/>
+                <text><![CDATA[Contact: (123) 456-7890]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+
+    <columnHeader>
+        <band height="40">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="40"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="10" width="80" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Invoice Number]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="70" y="10" width="70" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Amount]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="140" y="10" width="60" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Currency]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="10" width="80" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Username]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="280" y="10" width="70" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[PO Number]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="430" y="10" width="90" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Target Account]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="520" y="10" width="90" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Source Account]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="610" y="10" width="40" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[TDS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="650" y="10" width="70" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Status]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="720" y="10" width="82" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Payment Date]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="30">
+            <textField>
+                <reportElement x="350" y="0" width="80" height="30"/>
+                <textFieldExpression><![CDATA[$F{invoicenumber}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="#,##0.00">
+                <reportElement x="70" y="0" width="70" height="30"/>
+                <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="0" width="60" height="30"/>
+                <textFieldExpression><![CDATA[$F{currency}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="200" y="0" width="80" height="30"/>
+                <textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="0" width="70" height="30"/>
+                <textFieldExpression><![CDATA[$F{ponumber}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="430" y="0" width="90" height="30"/>
+                <textFieldExpression><![CDATA[$F{targetBankAccount}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="520" y="0" width="90" height="30"/>
+                <textFieldExpression><![CDATA[$F{sourceBankAccount}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="610" y="0" width="40" height="30"/>
+                <textFieldExpression><![CDATA[$F{tds} + "%"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="650" y="0" width="70" height="30"/>
+                <textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="720" y="0" width="82" height="30"/>
+                <textFieldExpression><![CDATA[$F{paymentdate}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <summary>
+        <band height="50">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="50"/>
+            </rectangle>
+            <textField>
+                <reportElement x="600" y="10" width="200" height="30"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Total Amount: " + $F{currency} + " " + $F{amount}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+
+</jasperReport>
